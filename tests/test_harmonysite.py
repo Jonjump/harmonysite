@@ -4,7 +4,7 @@ import json
 
 import sys
 sys.path.append('..')
-from src.harmonysite.harmony_site import HarmonySite
+from src.harmonysite import HarmonySite
 
 TOKENRESPONSEOK = {
     '@attributes': {'status': None},

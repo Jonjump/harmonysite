@@ -27,7 +27,7 @@ class HarmonySite:
         self._token = self._get_token(username, password)
 
     @classmethod
-    def build(self, api_url: str, username: str, password: str):
+    def build(cls, api_url: str, username: str, password: str):
         """
         returns instance of API class with dependencies injected
 
@@ -42,7 +42,7 @@ class HarmonySite:
         -------
         Instantiated API object
         """
-        return (requests.Session(), api_url, username, password)
+        return cls(requests.Session(), api_url, username, password)
 
     def _get_token(self, username, password):
         request_data = {

@@ -17,8 +17,6 @@ DO NOT use your ordinary credentials for access!  Get a specific login set up.
 
 # Notes
 - The API is, at present, read only.
-- A nice way to make use of the API is using [Google's Colab](https://colab.research.google.com/?utm_source=scs-index).
-That way you don't have to install anything locally, and you can keep notebooks in a google drive.
 - you can [book the world-famous London Welsh Rugby Club Choir for your event](https://www.lwrcc.uk/dbpage.php?pg=bookings) 
 or come along and [join us](https://www.lwrcc.uk/dbpage.php?pg=membership).
 
@@ -38,27 +36,30 @@ for record in hs.browse("a table name"):
     print (record)
 ```
 
-
-# With Pandas
+# With Pandas And Colab
+A nice way to make use of the API is using [Google's Colab](https://colab.research.google.com/?utm_source=scs-index).
+That way you don't have to install anything locally, and you can keep notebooks in a google drive.
 You may well wish to use pandas to access the API - this provides a nice way of performing operations on data tables, 
 and works very well, particularly with colab.  In order to avoid this small package pulling in a large dependency, 
 panda code is not included, but a very simple way to do it is this ...
 ```
+# get the package (because it's not in the default google colab runtime)
+!pip install harmonysite
+
 from harmonysite import HarmonySite
 import pandas as pd
 
-
 hs = HarmonySite.build("<your api url>", "<username>", "<password>")
-def dataframe(table_name):
+def dataframe(table_name, filterColumns=None, idColumn='id'):
     df = pd.DataFrame.from_records(
-         hs.browse(table_name, page=0, page_size=9999999),
+         hs.browse(table_name, page_number=0, page_size=9999999),
          index=idColumn
     )
     if filterColumns:
         return df.filter(filterColumns)
     return df
 
-data = dataframe('<your table name>')
+dataframe('<a table name>')
 ``` 
 
 # Don't Forget
