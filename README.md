@@ -30,13 +30,11 @@ Binary installers for the latest released version is available at the Python Pac
 `pip install pandas`
 
 # Getting Started
-`
-from harmonysite import HarmonySite
+`from harmonysite import HarmonySite
 
 hs = HarmonySite.build("<your api url>", "<username>", "<password>")
 for record in hs.browse("a table name"):
-    print (record)
-`
+    print (record)`
 
 # With Pandas
 You may well wish to use pandas to access the API - this provides a nice way of performing operations on data tables, 
