@@ -91,7 +91,8 @@ class HarmonySite:
         records = self._result(req_data)['records']
         if records['@attributes']['count'] == '0': return
 
-        key = records['@attributes']['singular'].replace(' ', '_')  # get the correct key name
+        #key = records['@attributes']['singular'].replace(' ', '_')  # get the correct key name
+        key = "record"  # json response format changed
 
         #  iterate over records
         for row in records[key]:

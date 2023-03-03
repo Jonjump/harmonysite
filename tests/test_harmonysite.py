@@ -23,7 +23,7 @@ BROWSERESPONSEGOOD= {
     "@attributes":{"status":"okay"},
     "records":{
         "@attributes":{"singular":"photo gallery","plural":"galleries","available":"2","count":"2"},
-        "photo_gallery":[
+        "record":[
             {"@attributes":{"index":"1"},"id":"1","Name":"n1","Description":{}},
             {"@attributes":{"index":"2"},"id":"2","Name":"n2", "Description":{}}
         ]
